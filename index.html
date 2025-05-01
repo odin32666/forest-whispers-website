@@ -63,7 +63,7 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.4rem;
-            padding: 10px 20px;
+            padding: 12px 24px;
             transition: all 0.3s ease;
             border-radius: 8px;
             text-transform: uppercase;
@@ -71,6 +71,30 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            background: linear-gradient(to bottom, #8B4513, #654321);
+            border: 2px solid #3E2723;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2),
+                        inset 0 1px 0 rgba(255,255,255,0.2),
+                        inset 0 -1px 0 rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.1) 2px,
+                rgba(0,0,0,0.1) 4px
+            );
+            opacity: 0.3;
         }
 
         .nav a::after {
@@ -78,10 +102,27 @@
             font-size: 1.2rem;
             opacity: 0.9;
             transition: transform 0.3s ease;
+            margin-left: 8px;
+        }
+
+        .nav a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.3),
+                        inset 0 1px 0 rgba(255,255,255,0.3),
+                        inset 0 -1px 0 rgba(0,0,0,0.3);
+            background: linear-gradient(to bottom, #9B5523, #754321);
         }
 
         .nav a:hover::after {
             transform: scale(1.2);
+        }
+
+        .nav a:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2),
+                        inset 0 1px 0 rgba(255,255,255,0.1),
+                        inset 0 -1px 0 rgba(0,0,0,0.3);
+            background: linear-gradient(to bottom, #7B3513, #554321);
         }
 
         .hero {
@@ -485,41 +526,37 @@
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
             padding: 2rem 0;
-            align-items: start;
         }
 
         .gallery-item {
             position: relative;
             border-radius: 10px;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
             overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
         .gallery-item:hover {
             transform: translateY(-5px);
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.3s;
-            cursor: pointer;
-            vertical-align: middle;
-        }
-
         .gallery-item:hover img {
-            transform: scale(1.02);
+            transform: scale(1.05);
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
             .gallery {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
         }
 
@@ -722,15 +759,220 @@
         .close-hero-lightbox:hover {
             color: var(--leaf-green);
         }
+
+        .gallery-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .gallery-tab {
+            padding: 0.8rem 1.5rem;
+            background: var(--forest-green);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-tab:hover {
+            background: var(--leaf-green);
+            transform: translateY(-2px);
+        }
+
+        .gallery-tab.active {
+            background: var(--leaf-green);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
+
+        .gallery-category {
+            display: none;
+        }
+
+        .gallery-category.active {
+            display: grid;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .gallery-nav {
+                gap: 0.5rem;
+            }
+
+            .gallery-tab {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .services-container {
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: var(--forest-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .service-info h4 {
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+        }
+
+        .service-info ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .service-info li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .service-info li:last-child {
+            border-bottom: none;
+        }
+
+        .service-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .service-images img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .service-images img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .service-content {
+                grid-template-columns: 1fr;
+            }
+
+            .service-images {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-images img {
+                height: 200px;
+            }
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            z-index: 1001;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-nav.prev {
+            left: 20px;
+        }
+
+        .lightbox-nav.next {
+            right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                padding: 0.5rem;
+                font-size: 1.5rem;
+                width: 40px;
+                height: 40px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="nav">
         <ul>
-            <li><a href="#home">Home 🏕️</a></li>
-            <li><a href="#about">About 🏕️</a></li>
-            <li><a href="#gallery">Gallery 🏕️</a></li>
-            <li><a href="#contact">Contact 🏕️</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
 
@@ -811,20 +1053,247 @@
 
     <div class="lightbox" id="lightbox">
         <button class="close-lightbox" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-nav prev" onclick="navigateLightbox(-1)">❮</button>
+        <button class="lightbox-nav next" onclick="navigateLightbox(1)">❯</button>
         <img id="lightbox-img" src="" alt="Enlarged view">
     </div>
 
+    <section class="content-section" id="services">
+        <h2>Our Services</h2>
+        <div class="services-container">
+            <div class="service-card tent-rental">
+                <h3>Tent Rentals</h3>
+                <div class="service-content">
+                    <div class="service-info">
+                        <h4>Available Equipment</h4>
+                        <ul>
+                            <li>2-Person Tents</li>
+                            <li>4-Person Tents</li>
+                            <li>Camping Chairs</li>
+                            <li>Sleeping Bags</li>
+                            <li>Camping Lights</li>
+                            <li>Basic Camping Gear</li>
+                        </ul>
+                        <a href="https://www.facebook.com/Forestwhisperscampsite/" target="_blank" class="cta-button">Inquire About Rentals</a>
+                    </div>
+                    <div class="service-images">
+                        <img src="Images/package1.jpg" alt="Camping Package 1" loading="lazy" onclick="openServiceLightbox(this)">
+                        <img src="Images/package2.jpg" alt="Camping Package 2" loading="lazy" onclick="openServiceLightbox(this)">
+                        <img src="Images/rent-a-tent.jpg" alt="Tent Rental" loading="lazy" onclick="openServiceLightbox(this)">
+                        <img src="Images/rent-a-tent1.jpg" alt="Tent Rental Options" loading="lazy" onclick="openServiceLightbox(this)">
+                        <img src="Images/rent-a-tent2.jpg" alt="Camping Equipment" loading="lazy" onclick="openServiceLightbox(this)">
+                        <img src="Images/rent-a-tent3.jpg" alt="Tent Setup" loading="lazy" onclick="openServiceLightbox(this)">
+                        <img src="Images/rent-a-tent4.jpg" alt="Camping Gear" loading="lazy" onclick="openServiceLightbox(this)">
+                        <img src="Images/rent-a-tent6.jpg" alt="Tent Interior" loading="lazy" onclick="openServiceLightbox(this)">
+                        <img src="Images/rent-a-tent7.jpg" alt="Camping Setup" loading="lazy" onclick="openServiceLightbox(this)">
+                    </div>
+                </div>
+            </div>
+            <!-- Add more service cards here in the future -->
+        </div>
+
+        <style>
+            .services-container {
+                margin-top: 2rem;
+            }
+
+            .service-card {
+                background: white;
+                border-radius: 15px;
+                padding: 2rem;
+                margin-bottom: 2rem;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .service-card h3 {
+                color: var(--forest-green);
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+                text-align: center;
+            }
+
+            .service-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+                align-items: start;
+            }
+
+            .service-info h4 {
+                color: var(--forest-green);
+                margin-bottom: 1rem;
+            }
+
+            .service-info ul {
+                list-style: none;
+                padding: 0;
+                margin-bottom: 2rem;
+            }
+
+            .service-info li {
+                padding: 0.5rem 0;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+            }
+
+            .service-info li:last-child {
+                border-bottom: none;
+            }
+
+            .service-images {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .service-images img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+                border-radius: 10px;
+                transition: transform 0.3s ease;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+            .service-images img:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            }
+
+            @media (max-width: 768px) {
+                .service-content {
+                    grid-template-columns: 1fr;
+                }
+
+                .service-images {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .service-images img {
+                    height: 200px;
+                }
+            }
+        </style>
+    </section>
+
     <section class="content-section" id="gallery">
-        <h2>Experience the Beauty</h2>
-        <div class="gallery">
+        <h2>Photo Gallery</h2>
+        <div class="gallery-nav">
+            <button class="gallery-tab" data-category="campers" onclick="showGalleryCategory('campers')">Happy Campers</button>
+            <button class="gallery-tab" data-category="campsites" onclick="showGalleryCategory('campsites')">Campsites</button>
+            <button class="gallery-tab" data-category="all" onclick="showGalleryCategory('all')">All Photos</button>
+        </div>
+
+        <div class="gallery gallery-category" id="campers">
             <div class="gallery-item">
-                <img src="Images/nature-walk.jpg" alt="Guided Nature Walk" loading="lazy" onclick="openLightbox(this)">
+                <img src="Images/campers11.jpg" alt="Camping Group" loading="lazy" onclick="openLightbox(this)">
             </div>
             <div class="gallery-item">
-                <img src="Images/wildlife.jpg" alt="Local Wildlife" loading="lazy" onclick="openLightbox(this)">
+                <img src="Images/campers9.jpg" alt="Campers" loading="lazy" onclick="openLightbox(this)">
             </div>
             <div class="gallery-item">
-                <img src="Images/camping.jpg" alt="Camping Under Stars" loading="lazy" onclick="openLightbox(this)">
+                <img src="Images/campers8.jpg" alt="Group Activities" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers7.jpg" alt="Outdoor Fun" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers6.jpg" alt="Camp Life" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers5.jpg" alt="Nature Experience" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers4.jpg" alt="Forest Views" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers 3.jpg" alt="Camping Activities" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers1.jpg" alt="Camp Friends" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers.jpg" alt="Camping Experience" loading="lazy" onclick="openLightbox(this)">
+            </div>
+        </div>
+
+        <div class="gallery gallery-category" id="campsites">
+            <div class="gallery-item">
+                <img src="Images/campsite1.jpg" alt="Campsite View 1" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campsite2.jpg" alt="Campsite View 2" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campsite3.jpg" alt="Campsite View 3" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campsite.jpg" alt="Main Campsite Area" loading="lazy" onclick="openLightbox(this)">
+            </div>
+        </div>
+
+        <div class="gallery gallery-category active" id="all">
+            <div class="gallery-item">
+                <img src="Images/campsite1.jpg" alt="Campsite View 1" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campsite2.jpg" alt="Campsite View 2" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campsite3.jpg" alt="Campsite View 3" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campsite.jpg" alt="Main Campsite Area" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers11.jpg" alt="Camping Group" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers9.jpg" alt="Campers" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers8.jpg" alt="Group Activities" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers7.jpg" alt="Outdoor Fun" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers6.jpg" alt="Camp Life" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers5.jpg" alt="Nature Experience" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers4.jpg" alt="Forest Views" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers 3.jpg" alt="Camping Activities" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers1.jpg" alt="Camp Friends" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/campers.jpg" alt="Camping Experience" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/camping.jpg" alt="Camping Area" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/night-camping.jpg" alt="Night Camping View" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/night-camping1.jpg" alt="Evening Campsite" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/right-side.jpg" alt="Right Side View" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/left-side.jpg" alt="Left Side View" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/wildlife.jpg" alt="Wildlife Area" loading="lazy" onclick="openLightbox(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="Images/nature-walk.jpg" alt="Nature Walk View" loading="lazy" onclick="openLightbox(this)">
             </div>
         </div>
     </section>
@@ -835,12 +1304,31 @@
         <a href="https://www.facebook.com/Forestwhisperscampsite/" target="_blank" class="cta-button">Contact Us to Book</a>
     </section>
 
+    <section class="content-section" id="location">
+        <h2>Find Us</h2>
+        <div class="map-container" style="position: relative; width: 100%; height: 450px; margin: 2rem 0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d471.9766335544754!2d120.61678514725525!3d16.384742399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a10031488a2b%3A0xf6eb140571b68c0b!2sForest%20Whispers!5e0!3m2!1sen!2sph!4v1709700452799!5m2!1sen!2sph"
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <p style="text-align: center; margin-top: 1rem;">
+            <strong>Address:</strong> Forest Whispers Campsite, Carantes Ancestral Forest, Loakan Rd., Loakan Proper, Baguio City<br>
+            <a href="https://maps.app.goo.gl/YvZFBGZTHQPRGvYS6" target="_blank" class="cta-button" style="margin-top: 1rem;">Get Directions</a>
+        </p>
+    </section>
+
     <footer id="contact">
         <h2>Contact Forest Whispers</h2>
-        <p>Email: info@forestwhispers.com</p>
-        <p>Phone: +1234567890</p>
-        <p>Address: Carantes Ancestral Forest</p>
-        <p>&copy; 2023 Forest Whispers Campsite. All rights reserved.</p>
+        <p>Email: Kakrots.network@gmail.com</p>
+        <p>Phone: 0976 491 3818</p>
+        <p>Address: Forest Whispers Campsite, Carantes Ancestral Forest, Loakan Rd., Loakan Proper, Baguio City</p>
+        <p>&copy; 2025 Forest Whispers Campsite. All rights reserved.</p>
     </footer>
 
     <div class="hero-lightbox" id="heroLightbox">
@@ -851,7 +1339,12 @@
     </div>
 
     <script>
+        let currentGalleryImages = [];
+        let currentImageIndex = 0;
+        let currentSection = '';
+
         function openLightbox(img) {
+            currentSection = 'gallery';
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
             
@@ -861,10 +1354,57 @@
             
             lightboxImg.style.transformOrigin = `${startX}px ${startY}px`;
             
+            // Get all images in the current active gallery category
+            const activeGallery = document.querySelector('.gallery-category.active');
+            const images = Array.from(activeGallery.querySelectorAll('img'));
+            currentGalleryImages = images;
+            currentImageIndex = images.indexOf(img);
+            
             lightboxImg.src = img.src;
             lightboxImg.alt = img.alt;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
+        }
+
+        function openServiceLightbox(img) {
+            currentSection = 'service';
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            const rect = img.getBoundingClientRect();
+            const startX = rect.left + rect.width / 2;
+            const startY = rect.top + rect.height / 2;
+            
+            lightboxImg.style.transformOrigin = `${startX}px ${startY}px`;
+            
+            // Get all images in the service images section
+            const serviceImages = Array.from(document.querySelector('.service-images').querySelectorAll('img'));
+            currentGalleryImages = serviceImages;
+            currentImageIndex = serviceImages.indexOf(img);
+            
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function navigateLightbox(direction) {
+            currentImageIndex = (currentImageIndex + direction + currentGalleryImages.length) % currentGalleryImages.length;
+            const newImg = currentGalleryImages[currentImageIndex];
+            
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            // Add smooth transition animation with bounce effect
+            lightboxImg.style.transition = 'transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.3s ease';
+            lightboxImg.style.transform = direction > 0 ? 'translateX(50px) scale(0.95)' : 'translateX(-50px) scale(0.95)';
+            lightboxImg.style.opacity = '0';
+            
+            setTimeout(() => {
+                lightboxImg.src = newImg.src;
+                lightboxImg.alt = newImg.alt;
+                lightboxImg.style.transform = 'translateX(0) scale(1)';
+                lightboxImg.style.opacity = '1';
+            }, 300);
         }
 
         function closeLightbox() {
@@ -877,8 +1417,24 @@
                 lightbox.classList.remove('active');
                 lightboxImg.classList.remove('closing');
                 document.body.style.overflow = '';
+                currentGalleryImages = [];
+                currentImageIndex = 0;
+                currentSection = '';
             }, 300);
         }
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('lightbox').classList.contains('active')) {
+                if (e.key === 'ArrowLeft') {
+                    navigateLightbox(-1);
+                } else if (e.key === 'ArrowRight') {
+                    navigateLightbox(1);
+                } else if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            }
+        });
 
         function openHeroLightbox(img) {
             const lightbox = document.getElementById('heroLightbox');
@@ -933,17 +1489,41 @@
             });
         });
 
-        document.getElementById('lightbox').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeLightbox();
+        function showGalleryCategory(category) {
+            // Remove active class from all tabs and galleries
+            const allTabs = document.querySelectorAll('.gallery-tab');
+            const allGalleries = document.querySelectorAll('.gallery-category');
+            
+            allTabs.forEach(tab => tab.classList.remove('active'));
+            allGalleries.forEach(gallery => gallery.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            const selectedTab = document.querySelector(`.gallery-tab[data-category="${category}"]`);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
             }
-        });
+            
+            // Show selected gallery
+            const selectedGallery = document.getElementById(category);
+            if (selectedGallery) {
+                selectedGallery.classList.add('active');
+            }
+        }
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
+        // Set initial state when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove any existing active classes
+            document.querySelectorAll('.gallery-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.gallery-category').forEach(gallery => gallery.classList.remove('active'));
+            
+            // Set All Photos as active
+            const allPhotosTab = document.querySelector('.gallery-tab[data-category="all"]');
+            const allPhotosGallery = document.getElementById('all');
+            
+            if (allPhotosTab) allPhotosTab.classList.add('active');
+            if (allPhotosGallery) allPhotosGallery.classList.add('active');
         });
     </script>
 </body>
 </html>
+
