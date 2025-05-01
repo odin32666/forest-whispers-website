@@ -1857,6 +1857,176 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* --- MOBILE NAVIGATION --- */
+        @media (max-width: 768px) {
+            body, html {
+                overflow-x: hidden;
+                width: 100vw;
+                margin: 0;
+                padding: 0;
+            }
+            .nav {
+                height: 60px;
+                min-height: 60px;
+                padding: 0 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: rgba(44, 85, 48, 0.98);
+            }
+            .nav-logo-container {
+                padding-left: 0;
+            }
+            .nav-logo {
+                height: 40px;
+                width: 40px;
+                margin-right: 0;
+            }
+            .nav-center {
+                display: none;
+            }
+            .nav-buttons {
+                padding-right: 0;
+            }
+            .nav ul {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: rgba(44, 85, 48, 0.98);
+                flex-direction: column;
+                width: 100vw;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                z-index: 1001;
+            }
+            .nav ul.open {
+                display: flex;
+            }
+            .nav a {
+                padding: 16px 0;
+                font-size: 1.1rem;
+                width: 100vw;
+                text-align: center;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+                background: none;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            .hamburger {
+                display: block;
+                width: 32px;
+                height: 32px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                z-index: 1002;
+            }
+            .hamburger span {
+                display: block;
+                width: 100%;
+                height: 4px;
+                margin: 6px 0;
+                background: #fff;
+                border-radius: 2px;
+                transition: 0.3s;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                padding-top: 60px;
+                margin-top: 0;
+                min-height: 100vh;
+                height: auto;
+            }
+            .hero-image-container {
+                width: 100vw;
+                height: 220px;
+                min-height: 180px;
+                max-height: 250px;
+                padding: 0;
+                margin: 0;
+                position: relative;
+                overflow: hidden;
+            }
+            .hero-image {
+                display: none;
+            }
+            .hero-image.center {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100%;
+                min-width: 0;
+                border-radius: 0;
+                object-fit: cover;
+                background-size: cover;
+                background-position: center;
+                z-index: 1;
+            }
+            .hero-text-container {
+                width: 100vw;
+                margin: 0;
+                padding: 1.5rem 1rem 2rem 1rem;
+                background: rgba(0,0,0,0.7);
+                border-radius: 0;
+                box-shadow: none;
+                text-align: center;
+                position: relative;
+                z-index: 2;
+                top: 0;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+                margin-bottom: 0.7rem;
+                line-height: 1.2;
+                letter-spacing: 1px;
+                font-family: 'Bangers', 'Open Sans', Arial, sans-serif;
+            }
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1.1rem;
+                line-height: 1.4;
+                font-family: 'Open Sans', Arial, sans-serif;
+            }
+            .hero .cta-button {
+                padding: 10px 20px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 220px;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .mobile-welcome {
+                display: block;
+                text-align: center;
+                padding: 1.2rem 1rem 0.5rem 1rem;
+                background: rgba(44, 85, 48, 0.95);
+                color: #fff;
+                font-family: 'Bangers', 'Open Sans', Arial, sans-serif;
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+                border-bottom-left-radius: 18px;
+                border-bottom-right-radius: 18px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            }
+            .mobile-welcome p {
+                font-family: 'Open Sans', Arial, sans-serif;
+                font-size: 1rem;
+                margin: 0.2rem 0 0 0;
+                color: #e0ffe0;
+                font-style: italic;
+            }
+        }
+        @media (min-width: 769px) {
+            .mobile-welcome {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1864,12 +2034,11 @@
         <div class="nav-logo-container">
             <img src="Images/Logo.png" alt="Forest Whispers Logo" class="nav-logo">
         </div>
-        <div class="nav-center">
-            <div class="welcome-text">
-                <h1>Welcome to Forest Whispers Campsite</h1>
-                <p>Located inside the Carantes Ancestral Forest</p>
-            </div>
-        </div>
+        <button class="hamburger" aria-label="Open menu" onclick="document.querySelector('.nav ul').classList.toggle('open')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <div class="nav-buttons">
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -1878,6 +2047,10 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
+    </div>
+    <div class="mobile-welcome">
+        <div>Welcome to Forest Whispers Campsite</div>
+        <p>Located inside the Carantes Ancestral Forest</p>
     </div>
 
     <section class="hero" id="home">
