@@ -1341,6 +1341,249 @@
                 opacity: 0;
             }
         }
+
+        @media (max-width: 768px) {
+            .scenic-background {
+                background-size: 150% 100%, 120% 100%, 100% 100%;
+                animation: hillsMoveMobile 20s infinite linear;
+            }
+
+            .forest-silhouettes {
+                background-size: 
+                    /* Trees */
+                    12% 20%, 15% 25%,
+                    /* Pine Trees */
+                    20% 30%, 25% 35%,
+                    /* Birds */
+                    8% 8%, 10% 10%,
+                    /* Mountains */
+                    50% 35%, 60% 40%,
+                    /* Families */
+                    15% 20%, 20% 25%,
+                    /* Campfires */
+                    10% 10%, 12% 12%,
+                    /* Smoke */
+                    8% 8%, 10% 10%,
+                    /* Bushes */
+                    15% 15%, 18% 18%,
+                    /* Tents */
+                    20% 25%, 25% 30%,
+                    /* Cabins */
+                    25% 30%, 30% 35%;
+                background-position: 
+                    /* Trees */
+                    5% 80%, 25% 70%,
+                    /* Pine Trees */
+                    75% 75%, 90% 80%,
+                    /* Birds */
+                    15% 20%, 85% 25%,
+                    /* Mountains */
+                    0% 100%, 50% 100%,
+                    /* Families */
+                    30% 85%, 70% 80%,
+                    /* Campfires */
+                    35% 90%, 65% 85%,
+                    /* Smoke */
+                    33% 80%, 63% 75%,
+                    /* Bushes */
+                    20% 90%, 80% 85%,
+                    /* Tents */
+                    25% 75%, 75% 70%,
+                    /* Cabins */
+                    15% 65%, 85% 60%;
+                animation: forestMoveMobile 15s infinite linear;
+            }
+
+            .main-content {
+                padding: 1rem;
+                margin: 1rem;
+                backdrop-filter: blur(3px);
+            }
+
+            .content-section {
+                padding: 2rem 1rem;
+                margin: 1rem;
+            }
+
+            .hero-text-container {
+                padding: 20px;
+                margin: 20px;
+                margin-top: -200px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .service-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-images {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .gallery-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .gallery-tab {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @keyframes hillsMoveMobile {
+            0% {
+                background-position: 0% 100%, 50% 100%, 100% 100%;
+            }
+            100% {
+                background-position: 100% 100%, 150% 100%, 200% 100%;
+            }
+        }
+
+        @keyframes forestMoveMobile {
+            0% {
+                background-position: 
+                    /* Trees */
+                    5% 80%, 25% 70%,
+                    /* Pine Trees */
+                    75% 75%, 90% 80%,
+                    /* Birds */
+                    15% 20%, 85% 25%,
+                    /* Mountains */
+                    0% 100%, 50% 100%,
+                    /* Families */
+                    30% 85%, 70% 80%,
+                    /* Campfires */
+                    35% 90%, 65% 85%,
+                    /* Smoke */
+                    33% 80%, 63% 75%,
+                    /* Bushes */
+                    20% 90%, 80% 85%,
+                    /* Tents */
+                    25% 75%, 75% 70%,
+                    /* Cabins */
+                    15% 65%, 85% 60%;
+            }
+            50% {
+                background-position: 
+                    /* Trees */
+                    8% 80%, 28% 70%,
+                    /* Pine Trees */
+                    78% 75%, 93% 80%,
+                    /* Birds */
+                    18% 22%, 88% 27%,
+                    /* Mountains */
+                    2% 100%, 52% 100%,
+                    /* Families */
+                    33% 85%, 73% 80%,
+                    /* Campfires */
+                    38% 90%, 68% 85%,
+                    /* Smoke */
+                    36% 80%, 66% 75%,
+                    /* Bushes */
+                    23% 90%, 83% 85%,
+                    /* Tents */
+                    28% 75%, 78% 70%,
+                    /* Cabins */
+                    18% 65%, 88% 60%;
+            }
+            100% {
+                background-position: 
+                    /* Trees */
+                    5% 80%, 25% 70%,
+                    /* Pine Trees */
+                    75% 75%, 90% 80%,
+                    /* Birds */
+                    15% 20%, 85% 25%,
+                    /* Mountains */
+                    0% 100%, 50% 100%,
+                    /* Families */
+                    30% 85%, 70% 80%,
+                    /* Campfires */
+                    35% 90%, 65% 85%,
+                    /* Smoke */
+                    33% 80%, 63% 75%,
+                    /* Bushes */
+                    20% 90%, 80% 85%,
+                    /* Tents */
+                    25% 75%, 75% 70%,
+                    /* Cabins */
+                    15% 65%, 85% 60%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .forest-silhouettes {
+                background-size: 
+                    /* Trees */
+                    15% 25%, 18% 30%,
+                    /* Pine Trees */
+                    25% 35%, 30% 40%,
+                    /* Birds */
+                    10% 10%, 12% 12%,
+                    /* Mountains */
+                    60% 40%, 70% 45%,
+                    /* Families */
+                    20% 25%, 25% 30%,
+                    /* Campfires */
+                    12% 12%, 15% 15%,
+                    /* Smoke */
+                    10% 10%, 12% 12%,
+                    /* Bushes */
+                    18% 18%, 20% 20%,
+                    /* Tents */
+                    25% 30%, 30% 35%,
+                    /* Cabins */
+                    30% 35%, 35% 40%;
+                opacity: 0.08;
+            }
+
+            .scenic-background {
+                opacity: 0.12;
+            }
+
+            .hero-text-container {
+                margin-top: -150px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .service-images {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
