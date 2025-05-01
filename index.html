@@ -560,30 +560,209 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+
             .nav {
-                height: 70px;
-                padding: 0 1rem;
+                height: auto;
+                min-height: 70px;
+                padding: 0.5rem;
+                grid-template-columns: auto 1fr;
+                gap: 0.5rem;
+            }
+
+            .nav-logo-container {
+                padding-left: 0.5rem;
             }
 
             .nav-logo {
-                height: 60px;
-                width: 60px;
-                margin-right: 1rem;
+                height: 50px;
+                width: 50px;
+                margin-right: 0.5rem;
             }
 
-            .welcome-text {
-                min-width: auto;
-                padding: 0 0.5rem;
+            .nav-center {
+                display: none;
             }
 
-            .welcome-text h1 {
-                font-size: 1.2rem;
+            .nav-buttons {
+                padding-right: 0.5rem;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-right: 0;
+            }
+
+            .nav a {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                margin-top: 0;
+                padding-top: 70px;
+                flex-direction: column;
+                overflow: hidden;
+            }
+
+            .hero-image-container {
+                width: 100%;
+                height: 40vh;
+                padding: 0;
+                margin: 0;
+                position: relative;
+            }
+
+            .hero-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                min-width: 0;
+                border-radius: 0;
+                transform: none !important;
+            }
+
+            .hero-image.far-left,
+            .hero-image.far-right,
+            .hero-image.left,
+            .hero-image.right {
+                display: none;
+            }
+
+            .hero-image.center {
+                position: relative;
+                opacity: 1;
+            }
+
+            .hero-text-container {
+                width: 100%;
+                padding: 1.5rem;
+                margin: 0;
+                margin-top: -50px;
+                text-align: center;
+                background: rgba(0, 0, 0, 0.7);
+                backdrop-filter: blur(5px);
+                border-radius: 0;
+                box-shadow: none;
+                position: relative;
+                z-index: 2;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 0.8rem;
+                line-height: 1.2;
                 letter-spacing: 1px;
             }
 
-            .welcome-text p {
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 1.2rem;
+                line-height: 1.4;
+            }
+
+            .hero .cta-button {
+                padding: 10px 20px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+
+            .content-section {
+                padding: 1rem;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .main-content {
+                padding: 1rem;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .feature-card {
+                padding: 1.2rem;
+                margin: 0;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+
+            .gallery-item {
+                aspect-ratio: 16/9;
+            }
+
+            .gallery-nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                padding: 0 1rem;
+            }
+
+            .gallery-tab {
+                flex: 1;
+                min-width: 100px;
+                padding: 0.5rem;
                 font-size: 0.9rem;
-                margin: 0.2rem 0 0;
+            }
+
+            .service-card {
+                padding: 1.2rem;
+                margin: 0;
+            }
+
+            .service-content {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .service-images {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .service-images img {
+                height: 200px;
+                width: 100%;
+            }
+
+            footer {
+                padding: 1.5rem 1rem;
+                text-align: center;
+            }
+
+            footer p {
+                margin: 0.5rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav {
+                min-height: 60px;
+            }
+
+            .nav-logo {
+                height: 40px;
+                width: 40px;
             }
 
             .nav a {
@@ -591,121 +770,60 @@
                 font-size: 0.8rem;
             }
 
-            .hero {
-                height: auto;
-                min-height: 100vh;
-                margin-top: 70px;
-                flex-direction: column;
-            }
-
-            .hero-image-container {
-                width: 100%;
-                height: 50vh;
-                padding: 0;
-                gap: 0;
-            }
-
-            .hero-image {
-                min-width: 0;
-                border-radius: 0;
-            }
-
-            .hero-image.far-left,
-            .hero-image.far-right {
-                display: none;
-            }
-
-            .hero-image.left,
-            .hero-image.right {
-                display: none;
-            }
-
-            .hero-image.center {
-                flex: 1;
-                min-width: 100%;
-                transform: none;
-                opacity: 1;
-            }
-
-            .hero-text-container {
-                width: 100%;
-                padding: 2rem 1rem;
-                margin: 0;
-                margin-top: -100px;
-                text-align: center;
-                background: rgba(0, 0, 0, 0.6);
-                backdrop-filter: blur(5px);
-                border-radius: 0;
-                box-shadow: none;
-            }
-
             .hero h1 {
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
-                line-height: 1.2;
-                letter-spacing: 2px;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
+                font-size: 1.8rem;
             }
 
             .hero p {
-                font-size: 1.2rem;
-                margin-bottom: 1.5rem;
-                line-height: 1.4;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-            }
-
-            .hero .cta-button {
-                padding: 12px 24px;
-                font-size: 1.1rem;
-            }
-
-            .floating-leaves {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav {
-                height: 60px;
-            }
-
-            .nav-logo {
-                height: 50px;
-                width: 50px;
-            }
-
-            .welcome-text h1 {
                 font-size: 1rem;
             }
 
-            .welcome-text p {
+            .hero-text-container {
+                margin-top: -30px;
+                padding: 1.2rem;
+            }
+
+            .hero .cta-button {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+
+            .gallery-tab {
+                min-width: 80px;
+                padding: 0.4rem;
                 font-size: 0.8rem;
             }
 
-            .nav a {
-                padding: 4px 8px;
-                font-size: 0.7rem;
+            .service-images img {
+                height: 180px;
             }
+        }
 
-            .hero h1 {
-                font-size: 2rem;
+        /* Fix for iOS viewport height */
+        @supports (-webkit-touch-callout: none) {
+            .hero {
+                min-height: -webkit-fill-available;
             }
+        }
 
-            .hero p {
-                font-size: 1rem;
-            }
+        /* Ensure proper scrolling on mobile */
+        html, body {
+            overflow-x: hidden;
+            position: relative;
+            width: 100%;
+        }
 
-            .hero .cta-button {
-                padding: 10px 20px;
-                font-size: 1rem;
+        /* Fix for Android Chrome address bar */
+        @media (max-width: 768px) {
+            .hero {
+                height: 100vh;
+                height: calc(var(--vh, 1vh) * 100);
             }
+        }
 
-            .hero-text-container {
-                margin-top: -80px;
-                padding: 1.5rem 1rem;
-            }
+        /* Initialize viewport height variable */
+        :root {
+            --vh: 1vh;
         }
 
         /* Font smoothing for better mobile rendering */
@@ -1780,7 +1898,6 @@
             <div class="leaf"></div>
             <div class="leaf"></div>
             <div class="leaf"></div>
-            <div class="leaf"></div>
         </div>
         <div class="hero-image-container">
             <div class="hero-image far-left"></div>
@@ -2288,6 +2405,14 @@
                 lastTime = now;
             }
         });
+
+        function updateViewportHeight() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        window.addEventListener('load', updateViewportHeight);
+        window.addEventListener('resize', updateViewportHeight);
     </script>
 </body>
 </html>
