@@ -560,23 +560,178 @@
         }
 
         @media (max-width: 768px) {
-            .hero-image.left, .hero-image.right {
+            .nav {
+                height: 70px;
+                padding: 0 1rem;
+            }
+
+            .nav-logo {
+                height: 60px;
+                width: 60px;
+                margin-right: 1rem;
+            }
+
+            .welcome-text {
+                min-width: auto;
+                padding: 0 0.5rem;
+            }
+
+            .welcome-text h1 {
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+
+            .welcome-text p {
+                font-size: 0.9rem;
+                margin: 0.2rem 0 0;
+            }
+
+            .nav a {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                margin-top: 70px;
+                flex-direction: column;
+            }
+
+            .hero-image-container {
+                width: 100%;
+                height: 50vh;
+                padding: 0;
+                gap: 0;
+            }
+
+            .hero-image {
+                min-width: 0;
+                border-radius: 0;
+            }
+
+            .hero-image.far-left,
+            .hero-image.far-right {
                 display: none;
             }
-            
+
+            .hero-image.left,
+            .hero-image.right {
+                display: none;
+            }
+
             .hero-image.center {
                 flex: 1;
                 min-width: 100%;
+                transform: none;
+                opacity: 1;
+            }
+
+            .hero-text-container {
+                width: 100%;
+                padding: 2rem 1rem;
+                margin: 0;
+                margin-top: -100px;
+                text-align: center;
+                background: rgba(0, 0, 0, 0.6);
+                backdrop-filter: blur(5px);
+                border-radius: 0;
+                box-shadow: none;
             }
 
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+                line-height: 1.2;
+                letter-spacing: 2px;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
             }
 
             .hero p {
                 font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+                line-height: 1.4;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            .hero .cta-button {
+                padding: 12px 24px;
+                font-size: 1.1rem;
+            }
+
+            .floating-leaves {
+                display: none;
             }
         }
+
+        @media (max-width: 480px) {
+            .nav {
+                height: 60px;
+            }
+
+            .nav-logo {
+                height: 50px;
+                width: 50px;
+            }
+
+            .welcome-text h1 {
+                font-size: 1rem;
+            }
+
+            .welcome-text p {
+                font-size: 0.8rem;
+            }
+
+            .nav a {
+                padding: 4px 8px;
+                font-size: 0.7rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero .cta-button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
+            .hero-text-container {
+                margin-top: -80px;
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        /* Font smoothing for better mobile rendering */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Ensure consistent font rendering across devices */
+        @supports (-webkit-touch-callout: none) {
+            /* iOS specific styles */
+            body {
+                -webkit-font-smoothing: subpixel-antialiased;
+            }
+        }
+
+        @supports not (-webkit-touch-callout: none) {
+            /* Android specific styles */
+            body {
+                -webkit-font-smoothing: antialiased;
+            }
+        }
+
+        /* Import fonts with proper fallbacks */
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Bangers&display=swap');
 
         .content-section {
             padding: 4rem 2rem;
