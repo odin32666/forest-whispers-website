@@ -582,6 +582,208 @@
             padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            background: linear-gradient(to bottom, 
+                rgba(44, 85, 48, 0.1),
+                rgba(44, 85, 48, 0.2)
+            );
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .scenic-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.15;
+            background-image: 
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,50 Q25,30 50,50 T100,50 L100,100 L0,100 Z" fill="%232c5530"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,50 Q25,30 50,50 T100,50 L100,100 L0,100 Z" fill="%232c5530"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,50 Q25,30 50,50 T100,50 L100,100 L0,100 Z" fill="%232c5530"/></svg>');
+            background-size: 200% 100%, 150% 100%, 100% 100%;
+            background-position: 0% 100%, 50% 100%, 100% 100%;
+            background-repeat: no-repeat;
+            animation: hillsMove 30s infinite linear;
+        }
+
+        .forest-silhouettes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            background-image: 
+                /* Trees */
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,0 L30,50 L70,50 Z M50,30 L30,80 L70,80 Z" fill="%232c5530"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,0 L30,50 L70,50 Z M50,30 L30,80 L70,80 Z" fill="%232c5530"/></svg>'),
+                /* Pine Trees */
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,0 L30,30 L40,30 L20,60 L30,60 L10,90 L90,90 L70,60 L80,60 L60,30 L70,30 Z" fill="%232c5530"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,0 L30,30 L40,30 L20,60 L30,60 L10,90 L90,90 L70,60 L80,60 L60,30 L70,30 Z" fill="%232c5530"/></svg>'),
+                /* Birds */
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,50 Q30,40 40,50 Q50,60 60,50 Q70,40 80,50 L70,60 L30,60 Z" fill="%232c5530"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,50 Q30,40 40,50 Q50,60 60,50 Q70,40 80,50 L70,60 L30,60 Z" fill="%232c5530"/></svg>'),
+                /* Mountains */
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,100 L20,60 L40,80 L60,40 L80,60 L100,20 L100,100 Z" fill="%232c5530"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,100 L20,60 L40,80 L60,40 L80,60 L100,20 L100,100 Z" fill="%232c5530"/></svg>'),
+                /* Families */
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M30,100 L30,70 L20,70 L20,60 L40,60 L40,70 L30,70 Z M50,100 L50,70 L40,70 L40,60 L60,60 L60,70 L50,70 Z M70,100 L70,70 L60,70 L60,60 L80,60 L80,70 L70,70 Z" fill="%232c5530"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M30,100 L30,70 L20,70 L20,60 L40,60 L40,70 L30,70 Z M50,100 L50,70 L40,70 L40,60 L60,60 L60,70 L50,70 Z M70,100 L70,70 L60,70 L60,60 L80,60 L80,70 L70,70 Z" fill="%232c5530"/></svg>'),
+                /* Campfires */
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,100 L30,80 L70,80 Z M50,80 L40,60 L60,60 Z M50,60 L45,50 L55,50 Z" fill="%232c5530"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,100 L30,80 L70,80 Z M50,80 L40,60 L60,60 Z M50,60 L45,50 L55,50 Z" fill="%232c5530"/></svg>'),
+                /* Smoke */
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,50 Q55,40 60,50 Q65,60 70,50 Q75,40 80,50 L75,55 L55,55 Z" fill="%232c5530"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,50 Q55,40 60,50 Q65,60 70,50 Q75,40 80,50 L75,55 L55,55 Z" fill="%232c5530"/></svg>'),
+                /* Bushes */
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M30,100 Q50,80 70,100 Q60,90 50,90 Q40,90 30,100 Z" fill="%232c5530"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M30,100 Q50,80 70,100 Q60,90 50,90 Q40,90 30,100 Z" fill="%232c5530"/></svg>'),
+                /* Tents */
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,30 L20,70 L80,70 Z M20,70 L80,70 L70,100 L30,100 Z" fill="%232c5530"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,30 L20,70 L80,70 Z M20,70 L80,70 L70,100 L30,100 Z" fill="%232c5530"/></svg>'),
+                /* Cabins */
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,100 L20,50 L50,30 L80,50 L80,100 Z M30,100 L30,60 L50,45 L70,60 L70,100 Z" fill="%232c5530"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,100 L20,50 L50,30 L80,50 L80,100 Z M30,100 L30,60 L50,45 L70,60 L70,100 Z" fill="%232c5530"/></svg>');
+            background-size: 
+                /* Trees */
+                8% 15%, 12% 20%,
+                /* Pine Trees */
+                15% 25%, 20% 30%,
+                /* Birds */
+                5% 5%, 7% 7%,
+                /* Mountains */
+                40% 30%, 50% 35%,
+                /* Families */
+                10% 15%, 15% 20%,
+                /* Campfires */
+                8% 8%, 10% 10%,
+                /* Smoke */
+                6% 6%, 8% 8%,
+                /* Bushes */
+                12% 12%, 15% 15%,
+                /* Tents */
+                15% 20%, 20% 25%,
+                /* Cabins */
+                20% 25%, 25% 30%;
+            background-position: 
+                /* Trees */
+                5% 80%, 25% 70%,
+                /* Pine Trees */
+                75% 75%, 90% 80%,
+                /* Birds */
+                15% 20%, 85% 25%,
+                /* Mountains */
+                0% 100%, 50% 100%,
+                /* Families */
+                30% 85%, 70% 80%,
+                /* Campfires */
+                35% 90%, 65% 85%,
+                /* Smoke */
+                33% 80%, 63% 75%,
+                /* Bushes */
+                20% 90%, 80% 85%,
+                /* Tents */
+                25% 75%, 75% 70%,
+                /* Cabins */
+                15% 65%, 85% 60%;
+            background-repeat: no-repeat;
+            animation: forestMove 20s infinite linear;
+        }
+
+        @keyframes forestMove {
+            0% {
+                background-position: 
+                    /* Trees */
+                    5% 80%, 25% 70%,
+                    /* Pine Trees */
+                    75% 75%, 90% 80%,
+                    /* Birds */
+                    15% 20%, 85% 25%,
+                    /* Mountains */
+                    0% 100%, 50% 100%,
+                    /* Families */
+                    30% 85%, 70% 80%,
+                    /* Campfires */
+                    35% 90%, 65% 85%,
+                    /* Smoke */
+                    33% 80%, 63% 75%,
+                    /* Bushes */
+                    20% 90%, 80% 85%,
+                    /* Tents */
+                    25% 75%, 75% 70%,
+                    /* Cabins */
+                    15% 65%, 85% 60%;
+            }
+            50% {
+                background-position: 
+                    /* Trees */
+                    8% 80%, 28% 70%,
+                    /* Pine Trees */
+                    78% 75%, 93% 80%,
+                    /* Birds */
+                    18% 22%, 88% 27%,
+                    /* Mountains */
+                    2% 100%, 52% 100%,
+                    /* Families */
+                    33% 85%, 73% 80%,
+                    /* Campfires */
+                    38% 90%, 68% 85%,
+                    /* Smoke */
+                    36% 80%, 66% 75%,
+                    /* Bushes */
+                    23% 90%, 83% 85%,
+                    /* Tents */
+                    28% 75%, 78% 70%,
+                    /* Cabins */
+                    18% 65%, 88% 60%;
+            }
+            100% {
+                background-position: 
+                    /* Trees */
+                    5% 80%, 25% 70%,
+                    /* Pine Trees */
+                    75% 75%, 90% 80%,
+                    /* Birds */
+                    15% 20%, 85% 25%,
+                    /* Mountains */
+                    0% 100%, 50% 100%,
+                    /* Families */
+                    30% 85%, 70% 80%,
+                    /* Campfires */
+                    35% 90%, 65% 85%,
+                    /* Smoke */
+                    33% 80%, 63% 75%,
+                    /* Bushes */
+                    20% 90%, 80% 85%,
+                    /* Tents */
+                    25% 75%, 75% 70%,
+                    /* Cabins */
+                    15% 65%, 85% 60%;
+            }
+        }
+
+        @keyframes hillsMove {
+            0% {
+                background-position: 0% 100%, 50% 100%, 100% 100%;
+            }
+            100% {
+                background-position: 100% 100%, 150% 100%, 200% 100%;
+            }
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
         }
 
         .features {
@@ -1070,6 +1272,75 @@
                 height: 40px;
             }
         }
+
+        .cursor-leaf {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(
+                to right,
+                rgba(149, 180, 106, 0.8),
+                rgba(149, 180, 106, 0.6)
+            );
+            border-radius: 100% 0 100% 0;
+            pointer-events: none;
+            z-index: 9999;
+            transform-origin: center;
+            animation: leafFloat 1.5s ease-in-out forwards;
+        }
+
+        .cursor-leaf:nth-child(3n) {
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(
+                to right,
+                rgba(149, 180, 106, 0.7),
+                rgba(149, 180, 106, 0.5)
+            );
+        }
+
+        .cursor-leaf:nth-child(3n+1) {
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(
+                to right,
+                rgba(149, 180, 106, 0.9),
+                rgba(149, 180, 106, 0.7)
+            );
+        }
+
+        @keyframes leafFloat {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) translateY(100px) rotate(360deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes leafFloat2 {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) translateY(80px) rotate(-360deg) scale(0.4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes leafFloat3 {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) translateY(120px) rotate(180deg) scale(0.6);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1112,9 +1383,6 @@
             <div class="leaf"></div>
             <div class="leaf"></div>
             <div class="leaf"></div>
-            <div class="leaf"></div>
-            <div class="leaf"></div>
-            <div class="leaf"></div>
         </div>
         <div class="hero-image-container">
             <div class="hero-image far-left"></div>
@@ -1131,21 +1399,23 @@
     </section>
 
     <section class="content-section" id="about">
-        <h2>Welcome to Nature's Embrace</h2>
-        <p>Nestled in the heart of The Carantes Ancestral Forest, our campsite offers an unforgettable experience where nature meets comfort. Immerse yourself in the ancient wisdom of the forest while enjoying modern amenities.</p>
-        
-        <div class="features">
-            <div class="feature-card">
-                <h3>Eco-Friendly Facilities</h3>
-                <p>Our campsite is designed to minimize environmental impact while maximizing your comfort.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Unwinding Experience</h3>
-                <p>Chill and relax under the starry night and cold Baguio breeze.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Quality Time with Loved Ones</h3>
-                <p>Share stories around the campfire and escape the hustle and bustle of the city, while being near enough to enjoy Baguio's attractions.</p>
+        <div class="main-content">
+            <h2>Welcome to Nature's Embrace</h2>
+            <p>Nestled in the heart of The Carantes Ancestral Forest, our campsite offers an unforgettable experience where nature meets comfort. Immerse yourself in the ancient wisdom of the forest while enjoying modern amenities.</p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Eco-Friendly Facilities</h3>
+                    <p>Our campsite is designed to minimize environmental impact while maximizing your comfort.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Unwinding Experience</h3>
+                    <p>Chill and relax under the starry night and cold Baguio breeze.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Quality Time with Loved Ones</h3>
+                    <p>Share stories around the campfire and escape the hustle and bustle of the city, while being near enough to enjoy Baguio's attractions.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1158,268 +1428,194 @@
     </div>
 
     <section class="content-section" id="services">
-        <h2>Our Services</h2>
-        <div class="services-container">
-            <div class="service-card tent-rental">
-                <h3>Tent Rentals</h3>
-                <div class="service-content">
-                    <div class="service-info">
-                        <h4>Available Equipment</h4>
-                        <ul>
-                            <li>2-Person Tents</li>
-                            <li>4-Person Tents</li>
-                            <li>Camping Chairs</li>
-                            <li>Sleeping Bags</li>
-                            <li>Camping Lights</li>
-                            <li>Basic Camping Gear</li>
-                        </ul>
-                        <a href="https://www.facebook.com/Forestwhisperscampsite/" target="_blank" class="cta-button">Inquire About Rentals</a>
-                    </div>
-                    <div class="service-images">
-                        <img src="Images/package1.jpg" alt="Camping Package 1" loading="lazy" onclick="openServiceLightbox(this)">
-                        <img src="Images/package2.jpg" alt="Camping Package 2" loading="lazy" onclick="openServiceLightbox(this)">
-                        <img src="Images/rent-a-tent.jpg" alt="Tent Rental" loading="lazy" onclick="openServiceLightbox(this)">
-                        <img src="Images/rent-a-tent1.jpg" alt="Tent Rental Options" loading="lazy" onclick="openServiceLightbox(this)">
-                        <img src="Images/rent-a-tent2.jpg" alt="Camping Equipment" loading="lazy" onclick="openServiceLightbox(this)">
-                        <img src="Images/rent-a-tent3.jpg" alt="Tent Setup" loading="lazy" onclick="openServiceLightbox(this)">
-                        <img src="Images/rent-a-tent4.jpg" alt="Camping Gear" loading="lazy" onclick="openServiceLightbox(this)">
-                        <img src="Images/rent-a-tent6.jpg" alt="Tent Interior" loading="lazy" onclick="openServiceLightbox(this)">
-                        <img src="Images/rent-a-tent7.jpg" alt="Camping Setup" loading="lazy" onclick="openServiceLightbox(this)">
+        <div class="main-content">
+            <h2>Our Services</h2>
+            <div class="services-container">
+                <div class="service-card tent-rental">
+                    <h3>Tent Rentals</h3>
+                    <div class="service-content">
+                        <div class="service-info">
+                            <h4>Available Equipment</h4>
+                            <ul>
+                                <li>2-Person Tents</li>
+                                <li>4-Person Tents</li>
+                                <li>Camping Chairs</li>
+                                <li>Sleeping Bags</li>
+                                <li>Camping Lights</li>
+                                <li>Basic Camping Gear</li>
+                            </ul>
+                            <a href="https://www.facebook.com/Forestwhisperscampsite/" target="_blank" class="cta-button">Inquire About Rentals</a>
+                        </div>
+                        <div class="service-images">
+                            <img src="Images/package1.jpg" alt="Camping Package 1" loading="lazy" onclick="openServiceLightbox(this)">
+                            <img src="Images/package2.jpg" alt="Camping Package 2" loading="lazy" onclick="openServiceLightbox(this)">
+                            <img src="Images/rent-a-tent.jpg" alt="Tent Rental" loading="lazy" onclick="openServiceLightbox(this)">
+                            <img src="Images/rent-a-tent1.jpg" alt="Tent Rental Options" loading="lazy" onclick="openServiceLightbox(this)">
+                            <img src="Images/rent-a-tent2.jpg" alt="Camping Equipment" loading="lazy" onclick="openServiceLightbox(this)">
+                            <img src="Images/rent-a-tent3.jpg" alt="Tent Setup" loading="lazy" onclick="openServiceLightbox(this)">
+                            <img src="Images/rent-a-tent4.jpg" alt="Camping Gear" loading="lazy" onclick="openServiceLightbox(this)">
+                            <img src="Images/rent-a-tent6.jpg" alt="Tent Interior" loading="lazy" onclick="openServiceLightbox(this)">
+                            <img src="Images/rent-a-tent7.jpg" alt="Camping Setup" loading="lazy" onclick="openServiceLightbox(this)">
+                        </div>
                     </div>
                 </div>
+                <!-- Add more service cards here in the future -->
             </div>
-            <!-- Add more service cards here in the future -->
         </div>
-
-        <style>
-            .services-container {
-                margin-top: 2rem;
-            }
-
-            .service-card {
-                background: white;
-                border-radius: 15px;
-                padding: 2rem;
-                margin-bottom: 2rem;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            }
-
-            .service-card h3 {
-                color: var(--forest-green);
-                font-size: 1.8rem;
-                margin-bottom: 1.5rem;
-                text-align: center;
-            }
-
-            .service-content {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-                align-items: start;
-            }
-
-            .service-info h4 {
-                color: var(--forest-green);
-                margin-bottom: 1rem;
-            }
-
-            .service-info ul {
-                list-style: none;
-                padding: 0;
-                margin-bottom: 2rem;
-            }
-
-            .service-info li {
-                padding: 0.5rem 0;
-                border-bottom: 1px solid rgba(0,0,0,0.1);
-            }
-
-            .service-info li:last-child {
-                border-bottom: none;
-            }
-
-            .service-images {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
-            }
-
-            .service-images img {
-                width: 100%;
-                height: 180px;
-                object-fit: cover;
-                border-radius: 10px;
-                transition: transform 0.3s ease;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-
-            .service-images img:hover {
-                transform: scale(1.05);
-                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            }
-
-            @media (max-width: 768px) {
-                .service-content {
-                    grid-template-columns: 1fr;
-                }
-
-                .service-images {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-
-                .service-images img {
-                    height: 200px;
-                }
-            }
-        </style>
     </section>
 
     <section class="content-section" id="gallery">
-        <h2>Photo Gallery</h2>
-        <div class="gallery-nav">
-            <button class="gallery-tab" data-category="campers" onclick="showGalleryCategory('campers')">Happy Campers</button>
-            <button class="gallery-tab" data-category="campsites" onclick="showGalleryCategory('campsites')">Campsites</button>
-            <button class="gallery-tab" data-category="all" onclick="showGalleryCategory('all')">All Photos</button>
-        </div>
+        <div class="main-content">
+            <h2>Photo Gallery</h2>
+            <div class="gallery-nav">
+                <button class="gallery-tab" data-category="campers" onclick="showGalleryCategory('campers')">Happy Campers</button>
+                <button class="gallery-tab" data-category="campsites" onclick="showGalleryCategory('campsites')">Campsites</button>
+                <button class="gallery-tab" data-category="all" onclick="showGalleryCategory('all')">All Photos</button>
+            </div>
 
-        <div class="gallery gallery-category" id="campers">
-            <div class="gallery-item">
-                <img src="Images/campers11.jpg" alt="Camping Group" loading="lazy" onclick="openLightbox(this)">
+            <div class="gallery gallery-category" id="campers">
+                <div class="gallery-item">
+                    <img src="Images/campers11.jpg" alt="Camping Group" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers9.jpg" alt="Campers" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers8.jpg" alt="Group Activities" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers7.jpg" alt="Outdoor Fun" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers6.jpg" alt="Camp Life" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers5.jpg" alt="Nature Experience" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers4.jpg" alt="Forest Views" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers 3.jpg" alt="Camping Activities" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers1.jpg" alt="Camp Friends" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers.jpg" alt="Camping Experience" loading="lazy" onclick="openLightbox(this)">
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="Images/campers9.jpg" alt="Campers" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers8.jpg" alt="Group Activities" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers7.jpg" alt="Outdoor Fun" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers6.jpg" alt="Camp Life" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers5.jpg" alt="Nature Experience" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers4.jpg" alt="Forest Views" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers 3.jpg" alt="Camping Activities" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers1.jpg" alt="Camp Friends" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers.jpg" alt="Camping Experience" loading="lazy" onclick="openLightbox(this)">
-            </div>
-        </div>
 
-        <div class="gallery gallery-category" id="campsites">
-            <div class="gallery-item">
-                <img src="Images/campsite1.jpg" alt="Campsite View 1" loading="lazy" onclick="openLightbox(this)">
+            <div class="gallery gallery-category" id="campsites">
+                <div class="gallery-item">
+                    <img src="Images/campsite1.jpg" alt="Campsite View 1" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campsite2.jpg" alt="Campsite View 2" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campsite3.jpg" alt="Campsite View 3" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campsite.jpg" alt="Main Campsite Area" loading="lazy" onclick="openLightbox(this)">
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="Images/campsite2.jpg" alt="Campsite View 2" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campsite3.jpg" alt="Campsite View 3" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campsite.jpg" alt="Main Campsite Area" loading="lazy" onclick="openLightbox(this)">
-            </div>
-        </div>
 
-        <div class="gallery gallery-category active" id="all">
-            <div class="gallery-item">
-                <img src="Images/campsite1.jpg" alt="Campsite View 1" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campsite2.jpg" alt="Campsite View 2" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campsite3.jpg" alt="Campsite View 3" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campsite.jpg" alt="Main Campsite Area" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers11.jpg" alt="Camping Group" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers9.jpg" alt="Campers" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers8.jpg" alt="Group Activities" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers7.jpg" alt="Outdoor Fun" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers6.jpg" alt="Camp Life" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers5.jpg" alt="Nature Experience" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers4.jpg" alt="Forest Views" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers 3.jpg" alt="Camping Activities" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers1.jpg" alt="Camp Friends" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/campers.jpg" alt="Camping Experience" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/camping.jpg" alt="Camping Area" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/night-camping.jpg" alt="Night Camping View" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/night-camping1.jpg" alt="Evening Campsite" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/right-side.jpg" alt="Right Side View" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/left-side.jpg" alt="Left Side View" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/wildlife.jpg" alt="Wildlife Area" loading="lazy" onclick="openLightbox(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="Images/nature-walk.jpg" alt="Nature Walk View" loading="lazy" onclick="openLightbox(this)">
+            <div class="gallery gallery-category active" id="all">
+                <div class="gallery-item">
+                    <img src="Images/campsite1.jpg" alt="Campsite View 1" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campsite2.jpg" alt="Campsite View 2" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campsite3.jpg" alt="Campsite View 3" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campsite.jpg" alt="Main Campsite Area" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers11.jpg" alt="Camping Group" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers9.jpg" alt="Campers" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers8.jpg" alt="Group Activities" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers7.jpg" alt="Outdoor Fun" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers6.jpg" alt="Camp Life" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers5.jpg" alt="Nature Experience" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers4.jpg" alt="Forest Views" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers 3.jpg" alt="Camping Activities" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers1.jpg" alt="Camp Friends" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/campers.jpg" alt="Camping Experience" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/camping.jpg" alt="Camping Area" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/night-camping.jpg" alt="Night Camping View" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/night-camping1.jpg" alt="Evening Campsite" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/right-side.jpg" alt="Right Side View" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/left-side.jpg" alt="Left Side View" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/wildlife.jpg" alt="Wildlife Area" loading="lazy" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/nature-walk.jpg" alt="Nature Walk View" loading="lazy" onclick="openLightbox(this)">
+                </div>
             </div>
         </div>
     </section>
 
     <section class="content-section" id="booking">
-        <h2>Book Your Stay</h2>
-        <p>Ready for an unforgettable forest experience? Reserve your spot now!</p>
-        <a href="https://www.facebook.com/Forestwhisperscampsite/" target="_blank" class="cta-button">Contact Us to Book</a>
+        <div class="main-content">
+            <h2>Book Your Stay</h2>
+            <p>Ready for an unforgettable forest experience? Reserve your spot now!</p>
+            <a href="https://www.facebook.com/Forestwhisperscampsite/" target="_blank" class="cta-button">Contact Us to Book</a>
+        </div>
     </section>
 
     <section class="content-section" id="location">
-        <h2>Find Us</h2>
-        <div class="map-container" style="position: relative; width: 100%; height: 450px; margin: 2rem 0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d471.9766335544754!2d120.61678514725525!3d16.384742399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a10031488a2b%3A0xf6eb140571b68c0b!2sForest%20Whispers!5e0!3m2!1sen!2sph!4v1709700452799!5m2!1sen!2sph"
-                width="100%" 
-                height="100%" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+        <div class="main-content">
+            <h2>Find Us</h2>
+            <div class="map-container" style="position: relative; width: 100%; height: 450px; margin: 2rem 0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d471.9766335544754!2d120.61678514725525!3d16.384742399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a10031488a2b%3A0xf6eb140571b68c0b!2sForest%20Whispers!5e0!3m2!1sen!2sph!4v1709700452799!5m2!1sen!2sph"
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <p style="text-align: center; margin-top: 1rem;">
+                <strong>Address:</strong> Forest Whispers Campsite, Carantes Ancestral Forest, Loakan Rd., Loakan Proper, Baguio City<br>
+                <a href="https://maps.app.goo.gl/YvZFBGZTHQPRGvYS6" target="_blank" class="cta-button" style="margin-top: 1rem;">Get Directions</a>
+            </p>
         </div>
-        <p style="text-align: center; margin-top: 1rem;">
-            <strong>Address:</strong> Forest Whispers Campsite, Carantes Ancestral Forest, Loakan Rd., Loakan Proper, Baguio City<br>
-            <a href="https://maps.app.goo.gl/YvZFBGZTHQPRGvYS6" target="_blank" class="cta-button" style="margin-top: 1rem;">Get Directions</a>
-        </p>
     </section>
 
     <footer id="contact">
@@ -1436,6 +1632,9 @@
             <img id="heroLightboxImg" src="" alt="Enlarged hero image">
         </div>
     </div>
+
+    <div class="scenic-background"></div>
+    <div class="forest-silhouettes"></div>
 
     <script>
         let currentGalleryImages = [];
@@ -1622,7 +1821,77 @@
             if (allPhotosTab) allPhotosTab.classList.add('active');
             if (allPhotosGallery) allPhotosGallery.classList.add('active');
         });
+
+        // Add cursor leaf effect
+        document.addEventListener('mousemove', function(e) {
+            // Create a single leaf
+            const leaf = document.createElement('div');
+            leaf.className = 'cursor-leaf';
+            
+            // Position the leaf at cursor with slight offset
+            const offsetX = (Math.random() - 0.5) * 10;
+            const offsetY = (Math.random() - 0.5) * 10;
+            leaf.style.left = (e.clientX + offsetX) + 'px';
+            leaf.style.top = (e.clientY + offsetY) + 'px';
+            
+            // Random rotation and animation
+            const rotation = Math.random() * 360;
+            const animationType = Math.floor(Math.random() * 3);
+            leaf.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+            leaf.style.animation = `leafFloat${animationType + 1} ${1 + Math.random()}s ease-in-out forwards`;
+            
+            // Add to body
+            document.body.appendChild(leaf);
+            
+            // Remove leaf after animation
+            setTimeout(() => {
+                leaf.remove();
+            }, 2000);
+        });
+
+        // Add more leaves on slower movement
+        let lastX = 0;
+        let lastY = 0;
+        let lastTime = 0;
+        
+        document.addEventListener('mousemove', function(e) {
+            const now = Date.now();
+            const timeDiff = now - lastTime;
+            
+            if (timeDiff > 200) { // Create leaves less frequently
+                const distance = Math.sqrt(
+                    Math.pow(e.clientX - lastX, 2) + 
+                    Math.pow(e.clientY - lastY, 2)
+                );
+                
+                if (distance < 20) { // Create a leaf when moving very slowly
+                    const leaf = document.createElement('div');
+                    leaf.className = 'cursor-leaf';
+                    
+                    const offsetX = (Math.random() - 0.5) * 8;
+                    const offsetY = (Math.random() - 0.5) * 8;
+                    leaf.style.left = (e.clientX + offsetX) + 'px';
+                    leaf.style.top = (e.clientY + offsetY) + 'px';
+                    
+                    const rotation = Math.random() * 360;
+                    const animationType = Math.floor(Math.random() * 3);
+                    leaf.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+                    leaf.style.animation = `leafFloat${animationType + 1} ${1 + Math.random()}s ease-in-out forwards`;
+                    
+                    document.body.appendChild(leaf);
+                    
+                    setTimeout(() => {
+                        leaf.remove();
+                    }, 2000);
+                }
+                
+                lastX = e.clientX;
+                lastY = e.clientY;
+                lastTime = now;
+            }
+        });
     </script>
 </body>
 </html>
+
 
